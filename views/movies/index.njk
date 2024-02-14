@@ -2,7 +2,7 @@
 {% block title%}Home{% endblock %}
 {% block content %}
 <style>
-    table, th, tb {
+    table, th, td {
         border: 1px solid black;
     }
 </style>
@@ -18,12 +18,13 @@
     <tbody>
          {% for movie in movies %}
         <tr>
+            <td>{{movie.id}}</td>
             <td>{{movie.name}}</td>
             <td>{{movie.year}}</td>
             <td>
                 <a href="/movies/view?id={{movie.id}}">View</a>
-                <a href="">Edit</a>
-                <a href="">Delete</a>
+                <a href="/movies/edit/{{movie.id}}">Edit</a>
+                <a href="/movies/delete/{{movie.id}}">Delete</a>
             </td>
         </tr>
          {% endfor %}
