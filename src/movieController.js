@@ -1,8 +1,32 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const {Sequelize, QueryTypes} = require('sequelize');
+const {Sequelize, QueryTypes, DataTypes, INTEGER} = require('sequelize');
 let sequelize = new Sequelize('sqlite:db.sqlite');
+
+const  Movie = sequelize.define('Movie', { 
+
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+
+    year: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+
+    description: {
+        type: DataTypes.TEXT,
+       
+    }
+}, {tableName: 'movies'});
 
 router.get('/',async (req, res) => {  
     let movies = await sequelize.query('SELECT * FROM movies;',{type: QueryTypes.SELECT});
