@@ -56,7 +56,7 @@ if(!req.session.secretValue)
 res.session.secretValue = 'shush baby'
 res.send(req.session);
 });
-const authController = require('./src/models/authController.js');
+const authController = require('./src/authController.js');
 app.use(authController)
 
 app.listen(port, () => {
