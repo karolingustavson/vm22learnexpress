@@ -1,0 +1,17 @@
+
+       {% extends "partials/layout.njk"%}
+    {% block title %}   Veebileht{% endblock %}
+     {% block content %}
+    <h1> Cricle <sup></sup></h1>
+            <form method="POST">
+                    <p>
+                        <label>
+                            Radius <br>
+                            <input type="number" placeholder="Radius" name="radius">
+                        </label>
+                    </p>
+                    <p>
+                        <input type="submit"value="send">
+                    </p>
+            </form>
+    {% endblock %}
